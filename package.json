@@ -1,6 +1,6 @@
 {
   "name": "@reqall/core",
-  "version": "0.1.0",
+  "version": "2026.2.1",
   "description": "Core functionality for the Reqall system",
   "type": "module",
   "main": "dist/index.js",
