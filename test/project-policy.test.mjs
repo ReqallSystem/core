@@ -71,6 +71,6 @@ test('network remotes keep final two segments, never local paths', () => {
   for (const remote of ['https://host/group/team/repo.git/', 'ssh://git@host/group/team/repo.git', 'git@host:group/team/repo.git', 'git://host/team/repo', 'http://host/team/repo']) assert.equal(policy.normalizeRemote(remote), 'team/repo');
   for (const remote of ['/tmp/team/repo.git', 'C:\\team\\repo.git', 'C:/team/repo.git', 'file:///team/repo.git', '../team/repo', '//host/team/repo']) assert.equal(policy.normalizeRemote(remote), '');
   // Escapes, Unicode, spaces, and shell characters fail the automatic-name grammar.
-  for (const remote of ['https://host/org/r%C3%A9po.git', 'git@host:org/my repo.git', 'https://host/org/rép.git', 'ssh://git@host/org/re$po.git']) assert.equal(policy.normalizeRemote(remote), '', remote);
+  for (const remote of ['https://host/org/r%C3%A9po.git', 'git@host:org/my repo.git', 'https://host/org/rép.git', 'ssh://git@host/org/re$po.git', 'git@host: org/repo.git', 'git@host:org/repo .git']) assert.equal(policy.normalizeRemote(remote), '', remote);
   assert.equal(policy.normalizeRemote('git@host:org/valid_repo.v2.git'), 'org/valid_repo.v2');
 });

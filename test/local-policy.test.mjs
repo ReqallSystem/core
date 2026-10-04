@@ -30,6 +30,7 @@ test('package nearest-directory precedence, scoped npm and complete Go paths', t
  const {root,cwd,env}=fixture(t); writeFileSync(join(root,'package.json'),'{"name":"parent"}');
  writeFileSync(join(cwd,'go.mod'),'// heading\nmodule "github.com/acme/widget/v2" // comment\n');
  assert.deepEqual(p.localPortableBinding(cwd,env),{name:'github.com/acme/widget/v2',source:'package'});
+ writeFileSync(join(cwd,'go.mod'),'module github.com/acme/widget/v2//adjacent comment\n'); assert.equal(p.localPortableBinding(cwd,env).name,'github.com/acme/widget/v2');
  writeFileSync(join(cwd,'package.json'),'{"name":"@scope/src"}'); assert.equal(p.localPortableBinding(cwd,env).name,'scope/src');
  for (const name of [true,4,'@@scope/name','@scope','@scope/a/b','a//b','/abs','src/../x']) {writeFileSync(join(cwd,'package.json'),JSON.stringify({name})); assert.equal(p.localPortableBinding(cwd,env).name,'github.com/acme/widget/v2');}
  writeFileSync(join(cwd,'package.json'),'{"name":"src"}'); assert.equal(p.localPortableBinding(cwd,env).name,'src');
