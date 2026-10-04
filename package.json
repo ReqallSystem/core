@@ -1,6 +1,6 @@
 {
   "name": "@reqall/core",
-  "version": "2026.3.1",
+  "version": "2026.10.4",
   "description": "Core functionality for the Reqall system",
   "type": "module",
   "main": "dist/index.js",
@@ -19,7 +19,9 @@
     "test": "npm run build && node --test test/*.test.mjs",
     "prepack": "npm run build"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ReqallSystem/core.git"
