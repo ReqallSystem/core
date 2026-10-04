@@ -10,12 +10,16 @@
     "./auth": "./dist/auth.js",
     "./config": "./dist/config.js",
     "./detect-project": "./dist/detect-project.js",
-    "./classify": "./dist/classify.js"
+    "./classify": "./dist/classify.js",
+    "./project-policy": "./dist/project-policy.js"
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepack": "npm run build"
   },
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ReqallSystem/core.git"

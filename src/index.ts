@@ -3,4 +3,6 @@ export type { AuthOptions, AuthResult } from './auth.js';
 export { loadConfig } from './config.js';
 export type { ReqallConfig } from './config.js';
 export { detectProject } from './detect-project.js';
+export { resolveProjectBinding, normalizeRemote, extractProjectHint, machineProjectName, localPortableBinding } from './project-policy.js';
+export type { ProjectBinding } from './project-policy.js';
 export { CLASSIFICATION_PROMPT } from './classify.js';
